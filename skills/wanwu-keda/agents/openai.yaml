@@ -1,0 +1,4 @@
+interface:
+  display_name: "wanwu-keda（万物可答）"
+  short_description: "把任何问题拆成领域、学派、理论、案例，让认知盲点显形"
+  default_prompt: "使用 $wanwu-keda，把这个问题按领域、学派、理论、案例拆解，标明证明、论证、推测，让认知盲点显形。"
