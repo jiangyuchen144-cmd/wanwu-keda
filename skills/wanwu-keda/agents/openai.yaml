@@ -1,4 +1,4 @@
 interface:
-  display_name: "wanwu-keda（万物可答）v3"
-  short_description: "按需分析：事实追溯、竞争解释、四态盲点与独立审查，不默认遍历学科"
-  default_prompt: "使用 $wanwu-keda 分析这个问题：先判断分析模式，再解构前提、提取基础事实、按需选择领域，给出可追溯的结论、竞争解释和真实盲点。"
+  display_name: "wanwu-keda（万物可答）"
+  short_description: "以认知盲点发现为核心的通用认知探索 Skill"
+  default_prompt: "使用 $wanwu-keda 探索这个问题：先审查问题前提，扩展问题空间，区分事实、理论、推断与价值判断，再给出竞争解释、关键证据和真正重要的盲点。"
