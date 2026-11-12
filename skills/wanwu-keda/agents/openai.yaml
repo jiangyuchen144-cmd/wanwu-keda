@@ -1,4 +1,4 @@
 interface:
   display_name: "wanwu-keda（万物可答）"
-  short_description: "把任何问题拆成领域、学派、理论、案例，让认知盲点显形"
-  default_prompt: "使用 $wanwu-keda，把这个问题按领域、学派、理论、案例拆解，标明证明、论证、推测，让认知盲点显形。"
+  short_description: "把问题拆到可靠事实与判断上，做竞争解释与七类盲点审计"
+  default_prompt: "使用 $wanwu-keda 分析这个问题：先解构问题与前提，再给基础事实、证据状态、竞争性解释和认知盲点。"
