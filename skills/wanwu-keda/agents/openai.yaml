@@ -1,4 +1,4 @@
 interface:
-  display_name: "wanwu-keda（万物可答）"
-  short_description: "把问题拆到可靠事实与判断上，做竞争解释与七类盲点审计"
-  default_prompt: "使用 $wanwu-keda 分析这个问题：先解构问题与前提，再给基础事实、证据状态、竞争性解释和认知盲点。"
+  display_name: "wanwu-keda（万物可答）v3"
+  short_description: "按需分析：事实追溯、竞争解释、四态盲点与独立审查，不默认遍历学科"
+  default_prompt: "使用 $wanwu-keda 分析这个问题：先判断分析模式，再解构前提、提取基础事实、按需选择领域，给出可追溯的结论、竞争解释和真实盲点。"
