@@ -1,0 +1,4 @@
+interface:
+  display_name: "wanwu-kewen（万物可问）"
+  short_description: "自主认知探索：审视问题、前提与目标，主动发现未知并持续修正认知"
+  default_prompt: "使用 $wanwu-kewen 探索这个问题：先审视问题、前提和目标，再主动寻找用户没有意识到的可能性、解释和反例，并区分事实、推断、假设与价值判断。"

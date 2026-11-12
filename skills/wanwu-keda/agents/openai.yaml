@@ -1,4 +1,0 @@
-interface:
-  display_name: "wanwu-keda（万物可答）"
-  short_description: "以认知盲点发现为核心的通用认知探索 Skill"
-  default_prompt: "使用 $wanwu-keda 探索这个问题：先审查问题前提，扩展问题空间，区分事实、理论、推断与价值判断，再给出竞争解释、关键证据和真正重要的盲点。"

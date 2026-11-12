@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static integrity checks for the GPT-authored wanwu-keda v4 skill."""
+"""Static integrity checks for the wanwu-kewen skill."""
 from __future__ import annotations
 
 import re
@@ -7,44 +7,35 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "wanwu-keda"
-REFS = SKILL / "references"
-EXPECTED = {
-    "exploration-method.md",
-    "dialogue-patterns.md",
-    "reasoning-and-evidence.md",
-    "evaluation.md",
-}
+SKILL = ROOT / "skills" / "wanwu-kewen" / "SKILL.md"
 
 
 def main() -> int:
     errors: list[str] = []
-    text = (SKILL / "SKILL.md").read_text()
-    routed = set(re.findall(r"references/([a-z-]+\.md)", text))
+    if not SKILL.exists():
+        errors.append("missing skills/wanwu-kewen/SKILL.md")
+    else:
+        text = SKILL.read_text()
+        if not text.startswith("---\n"):
+            errors.append("SKILL.md must start with YAML frontmatter")
+        match = re.search(r"^name:\s*(\S+)\s*$", text, re.M)
+        if not match or match.group(1) != "wanwu-kewen":
+            errors.append("frontmatter name must be wanwu-kewen")
+        if "description:" not in text:
+            errors.append("frontmatter description missing")
+        for old in ("wanwu-keda", "references/", "archive/v3"):
+            if old in text:
+                errors.append(f"stale v3 reference in SKILL.md: {old}")
 
-    if routed != EXPECTED:
-        errors.append(f"routed refs = {sorted(routed)}, expected {sorted(EXPECTED)}")
-
-    for name in sorted(EXPECTED):
-        p = REFS / name
-        if not p.exists():
-            errors.append(f"missing reference: {name}")
-        elif p.stat().st_size == 0:
-            errors.append(f"empty reference: {name}")
-
-    old = {"facets.md", "output.md", "traceability.md", "theory-cards.md", "workflow.md", "blindspots.md", "review.md", "explanation.md", "evidence.md"}
-    leftovers = sorted(old & {p.name for p in REFS.iterdir() if p.is_file()})
-    if leftovers:
-        errors.append(f"v3 reference(s) still in current skill: {leftovers}")
-
-    if "## 参考资料加载规则" not in text:
-        errors.append("missing reference loading section")
+    old_dir = ROOT / "skills" / "wanwu-keda"
+    if old_dir.exists():
+        errors.append("old skills/wanwu-keda directory still exists")
 
     if errors:
         for e in errors:
             print(f"FAIL: {e}")
         return 1
-    print("OK: 4 current references, loading section present, no v3 references in skill")
+    print("OK: wanwu-kewen SKILL.md present, frontmatter valid, no old skill directory")
     return 0
 
 
